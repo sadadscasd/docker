@@ -35,13 +35,13 @@ jobs:
         #   registry: ghcr.io
         #   username: sadadscasd
         #   password: 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
-        run: docker login docker.pkg.github.com -u sadadscasd -p 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
+        run: docker login ghcr.io -u sadadscasd -p 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
       - name: docker push
         run: |
-            docker tag python:latest docker.pkg.github.com/sadadscasd/docker/pythonsmegma:1 
-            docker push docker.pkg.github.com/sadadscasd/docker/pythonsmegma:1   
-            docker tag node:latest docker.pkg.github.com/sadadscasd/docker/nodesmegma:1 
-            docker push docker.pkg.github.com/sadadscasd/docker/nodesmegma:1   
+            docker tag python:latest ghcr.io/sadadscasd/docker/pythonsmegma:1 
+            docker push ghcr.io/sadadscasd/docker/pythonsmegma:1   
+            docker tag node:latest ghcr.io/sadadscasd/docker/nodesmegma:1 
+            docker push ghcr.io/sadadscasd/docker/nodesmegma:1   
 
         # This workflow contains a single job called "build"
   # deploy:
