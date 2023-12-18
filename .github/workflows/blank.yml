@@ -30,7 +30,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: docker build -t ghcr.io/sadadscasd/python-on-compose:1.0 .
+      - run: docker build -t ghcr.io/sadadscasd/python-on-compose:1.0 ./python
       - run: docker push ghcr.io/sadadscasd/python-on-compose:1.0
       # - name: docker build python
       #   run: docker build -t python:latest ./python
