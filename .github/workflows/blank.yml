@@ -30,7 +30,7 @@ jobs:
         run: docker build -t node:latest ./node
       # login
       - name: docker login docker.pkg.github.com
-        run: echo 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 | docker login -u sadadscasd --password-stdin
+        run: docker login docker.pkg.github.com -u sadadscasd -p=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
       - name: docker push
         run: |
             docker tag python:latest docker.pkg.github.com/sadadscasd/docker/pythonsmegma:1 
