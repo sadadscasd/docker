@@ -39,9 +39,9 @@ jobs:
       - name: docker push
         run: |
             docker tag python:latest ghcr.io/sadadscasd/docker/pythonsmegma:1 
-            docker push ghcr.io/sadadscasd/docker/pythonsmegma:1   
+            sudo docker push ghcr.io/sadadscasd/docker/pythonsmegma:1   
             docker tag node:latest ghcr.io/sadadscasd/docker/nodesmegma:1 
-            docker push ghcr.io/sadadscasd/docker/nodesmegma:1   
+            sudo docker push ghcr.io/sadadscasd/docker/nodesmegma:1   
 
         # This workflow contains a single job called "build"
   # deploy:
