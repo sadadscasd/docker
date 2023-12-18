@@ -1,6 +1,6 @@
 services:
   pyt:
-    image: python:latest
+    image: ghcr.io/sadadscasd/python-on-compose:1.0
   
   node:
-    image: node:latest
+    image: ghcr.io/sadadscasd/node-on-compose:1.0
