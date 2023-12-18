@@ -29,8 +29,12 @@ jobs:
       - name: docker build node
         run: docker build -t node:latest ./node
       # login
-      - name: docker login docker.pkg.github.com
-        run: docker login docker.pkg.github.com -u sadadscasd -p=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
+      - name: logging
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: sadadscasd
+          password: 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
       - name: docker push
         run: |
             docker tag python:latest docker.pkg.github.com/sadadscasd/docker/pythonsmegma:1 
