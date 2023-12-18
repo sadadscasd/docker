@@ -35,7 +35,7 @@ jobs:
         #   registry: ghcr.io
         #   username: sadadscasd
         #   password: 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
-        run: docker login ghcr.io -u sadadscasd -p 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
+        run: docker login docker.pkg.github.com -u sadadscasd -p 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
       - name: docker push
         run: |
             docker tag python:latest ghcr.io/sadadscasd/docker/pythonsmegma:1 
