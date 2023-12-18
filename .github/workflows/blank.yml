@@ -28,8 +28,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: sadadscasd
-          password: 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
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - run: docker build -t ghcr.io/sadadscasd/python-on-compose:1.0 ./python
       - run: docker push ghcr.io/sadadscasd/python-on-compose:1.0
       - run: docker build -t ghcr.io/sadadscasd/node-on-compose:1.0 ./node
@@ -49,18 +49,20 @@ jobs:
       #       sudo docker push ghcr.io/sadadscasd/docker/nodesmegma:1   
 
         # This workflow contains a single job called "build"
-  # deploy:
-  #     # The type of runner that the job will run on
-  #   runs-on: ubuntu-latest
-  #   # Steps represent a sequence of tasks that will be executed as part of the job
-  #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #     - uses: actions/checkout@v3
-  #     # job deploy
-  #     - name: docker build python
-  #       run: docker build -t python:latest ./python
-  #     - name: docker build node
-  #       run: docker build -t node:latest ./node
-  #     - name: docker compose
-  #       run: docker compose up -d
+  deploy:
+      # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      # job deploy
+      - name: logging
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: docker compose
+        run: docker compose up -d
         
