@@ -30,7 +30,7 @@ jobs:
         run: docker build -t node:latest ./node
       # login
       - name: logging
-      - uses: docker/login-action@v3
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: sadadscasd
