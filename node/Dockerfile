@@ -1,7 +1,7 @@
-FROM node:14
+FROM node:alpine
 
 WORKDIR /code
-RUN npm install
+
 COPY . /code/
 EXPOSE 5050
 CMD ["node", "js.js"]
